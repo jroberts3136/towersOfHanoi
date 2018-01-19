@@ -10,6 +10,7 @@ public class Tower {
     String middle;
     String end;
     */
+    int count = 0;
 
     public Tower() {
 
@@ -17,11 +18,13 @@ public class Tower {
 
     public void solve(int disk, String source, String spare, String target){
         if (disk == 1){
-            System.out.println("Move disk from Tower "+source+" to Tower "+target+".");
+            count++;
+            System.out.println(count+": Move disk from Tower "+source+" to Tower "+target+".");
         }
         else{
             solve(disk-1, source, target, spare);
-            System.out.println("Move disk from Tower "+source+" to Tower "+target+".");
+            count++;
+            System.out.println(count+": Move disk from Tower "+source+" to Tower "+target+".");
             solve(disk-1, spare, source, target);
         }
     }
